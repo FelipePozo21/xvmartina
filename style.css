@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CONFIGURACIÓN GLOBAL
+   1. CONFIGURACIÓN GLOBAL (MANTENIDA AL 100%)
    ========================================================================== */
 * {
     margin: 0;
@@ -32,26 +32,51 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   2. PORTADA Y PRESENTACIÓN
+   2. PORTADA (REDISEÑO RESPONSIVE AUTOMÁTICO CON PICTURE)
    ========================================================================== */
 .portada {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: url('herojpeg.jpeg');
-    background-size: 100% 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    background-color: #f1f1f1; 
+}
+
+.imagen-picture-responsiva {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+}
+
+.imagen-responsive-interna {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center center; 
+}
+
+.portada::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.01); 
+    z-index: 2; 
 }
 
 .control-musica {
     position: absolute;
     top: 25px;
     right: 25px;
-    z-index: 10;
+    z-index: 10; 
     background: rgba(255, 255, 255, 0.7);
     width: 45px;
     height: 45px;
@@ -102,7 +127,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   3. CUENTA REGRESIVA
+   3. CUENTA REGRESIVA (ARREGLO ANTI-WRAP)
    ========================================================================== */
 .cuenta-regresiva {
     position: relative;
@@ -126,19 +151,19 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 5px; /* Reducido para evitar choques en pantallas mini */
     width: 100%;
-    max-width: 600px;
+    max-width: 500px; /* Reducido el max-width para compactar */
     z-index: 5;
+    flex-wrap: nowrap !important; /* PROHIBIDO que se bajen los segundos */
 }
 
 .caja-tiempo {
     background: rgba(255, 255, 255, 0.08);
-    padding: 15px 5px;
-    border-radius: 15px;
+    padding: 10px 2px;
+    border-radius: 12px;
     flex: 1;
-    min-width: 70px;
-    max-width: 120px;
+    min-width: 0; /* Permite que la caja se encoja si es necesario */
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(2px);
     text-align: center;
@@ -146,7 +171,8 @@ h1, h2, h3 {
 
 .caja-tiempo span {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    /* Usamos clamp con un valor mínimo más agresivo para que no rompa */
+    font-size: clamp(1.4rem, 4.5vw, 3.5rem); 
     font-weight: 600;
     color: #4A5D45 !important;
     line-height: 1;
@@ -154,7 +180,7 @@ h1, h2, h3 {
 }
 
 .caja-tiempo p {
-    font-size: clamp(0.6rem, 2vw, 0.8rem);
+    font-size: clamp(0.55rem, 1.8vw, 0.8rem);
     text-transform: uppercase;
     color: #8FA989 !important;
     letter-spacing: 1px;
@@ -162,14 +188,14 @@ h1, h2, h3 {
 }
 
 .separador {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-weight: 600;
     color: #4A5D45;
-    margin-top: -15px;
+    margin-top: -10px;
 }
 
 /* ==========================================================================
-   4. FIESTA
+   4. FIESTA (MANTENIDO: H2 Y BOTÓN CHICOS)
    ========================================================================== */
 .fiesta {
     background-color: #ffffff !important;
@@ -205,7 +231,7 @@ h1, h2, h3 {
 
 .fiesta .btn-principal {
     display: inline-block;
-    padding: 14px 40px; 
+    padding: 12px 35px; 
     background-color: #6b7a67;
     color: #ffffff !important;
     text-decoration: none;
@@ -297,7 +323,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   6. GALERÍA
+   6. GALERÍA (REDISEÑO: ENTRADA ESCALONADA)
    ========================================================================== */
 .galeria {
     padding: 80px 20px !important;
@@ -372,8 +398,9 @@ h1, h2, h3 {
 
 .asistencia .btn-principal {
     display: inline-block;
-    padding: 14px 45px; 
-    width: 50% !important;
+    padding: 14px 20px; 
+    width: 100%; /* En móvil ocupa el ancho disponible del card */
+    max-width: 300px; /* EVITA QUE SE VEA ENORME EN DESKTOP */
     background-color: #4A5D45; 
     color: #ffffff !important;
     text-decoration: none;
@@ -386,6 +413,7 @@ h1, h2, h3 {
     transition: all 0.4s ease;
     box-shadow: 0 8px 20px rgba(74, 93, 69, 0.2);
     border: none;
+    cursor: pointer;
 }
 
 .asistencia .btn-principal:hover {
@@ -395,7 +423,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   8. PIE DE PÁGINA (NUEVO)
+   8. PIE DE PÁGINA
    ========================================================================== */
 .pie-pagina {
     background-color: #F1F1F1 !important;
@@ -417,8 +445,8 @@ h1, h2, h3 {
    9. ANIMACIONES Y RESPONSIVE
    ========================================================================== */
 @keyframes fluirAcuarelaTenue {
-    0% { background-position: 0% 0%, 100% 100%, center center, center top; }
-    100% { background-position: 20% 10%, 80% 90%, center center, center top; }
+    0% { background-position: 0% 0%; }
+    100% { background-position: 20% 10%; }
 }
 
 @keyframes moverAcuarela {
@@ -436,17 +464,27 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
-    .contador-contenedor { gap: 10px; flex-wrap: wrap; }
-    .caja-tiempo span { font-size: 1.8rem; }
+    /* Contador móvil: Garantizamos NO WRAP */
+    .contador-contenedor { 
+        gap: 4px; 
+        flex-wrap: nowrap !important; 
+        padding: 0 5px;
+    }
+    
+    .caja-tiempo { padding: 8px 2px; }
+    
+    .caja-tiempo span { font-size: 1.5rem; } /* Forzamos un tamaño que quepa en 320px */
+    
     .presentacion .titulo-seccion { font-size: 2.2rem !important; }
     
+    /* Galería Móvil */
     .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .grid-fotos img:nth-child(n) { animation-delay: 0s; }
     .grid-fotos img:nth-child(1), .grid-fotos img:nth-child(2) { animation-delay: 0.2s; }
     .grid-fotos img:nth-child(3), .grid-fotos img:nth-child(4) { animation-delay: 0.4s; }
     .grid-fotos img:nth-child(5), .grid-fotos img:nth-child(6) { animation-delay: 0.6s; }
 
-    .asistencia .btn-principal { max-width: 400px !important; padding: 15px 20px; }
+    .asistencia .btn-principal { max-width: 400px !important; padding: 15px 20px; width: 85% !important; }
     .fiesta .titulo-seccion { font-size: 1.8rem; }
     
     .pie-pagina { padding: 40px 15px !important; }
