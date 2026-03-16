@@ -23,7 +23,7 @@ h1, h2, h3 {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: url('/herojpeg.jpeg');
+    background-image: url('herojpeg.jpeg');
     
     /* 1. Forzamos a que la imagen ocupe el 100% del ancho y el 100% del alto */
     /* Esto evita que la S y el 15 se corten por los lados */
