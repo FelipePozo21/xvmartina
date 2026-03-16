@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GLOBAL --- */
+/* --- CONFIGURACIÓN GLOBAL (MANTENIDA) --- */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-/* --- PORTADA --- */
+/* --- PORTADA (MANTENIDA) --- */
 .portada {
     position: relative;
     width: 100vw;
@@ -45,9 +45,19 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
 }
 
-/* --- BLOQUE BASE --- */
+.control-musica:hover {
+    transform: scale(1.1);
+}
+
+.control-musica img {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- BLOQUE BASE (MANTENIDA) --- */
 .bloque {
     width: 100%;
     padding: 80px 20px;
@@ -58,11 +68,10 @@ h1, h2, h3 {
     justify-content: center;
 }
 
-/* --- SECCIÓN PRESENTACIÓN (ALTURA AJUSTADA) --- */
+/* --- SECCIÓN PRESENTACIÓN (MANTENIDA) --- */
 .presentacion {
     position: relative;
     margin-top: -1px !important; 
-    /* Reducimos el padding para que el alto sea menor */
     padding: 80px 20px !important; 
     display: flex !important;
     flex-direction: column !important;
@@ -71,15 +80,17 @@ h1, h2, h3 {
     overflow: hidden;
 
     background-color: #F1F1F1 !important; 
+    
     background-image: 
         radial-gradient(at 0% 0%, rgba(143, 169, 137, 0.3) 0%, transparent 60%), 
         radial-gradient(at 100% 100%, rgba(227, 198, 193, 0.4) 0%, transparent 60%) !important;
     
     background-size: 150% 150% !important;
-    animation: moverFondoSutil 15s ease-in-out infinite alternate !important;
+    animation: moverAcuarela 15s ease infinite alternate !important;
 }
 
 .presentacion .titulo-seccion {
+    color: #6b7a67 !important;
     font-family: 'Playfair Display', serif !important;
     font-size: clamp(2.5rem, 8vw, 3.8rem) !important;
     font-style: italic;
@@ -88,25 +99,71 @@ h1, h2, h3 {
     letter-spacing: 5px;
     position: relative;
     z-index: 5;
-
+    
     background: linear-gradient(90deg, #6b7a67, #b88a83, #4A5D45, #6b7a67);
-    background-size: 300% auto;
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: animarLetras 8s linear infinite !important;
+    animation: colorTexto 8s linear infinite !important;
 }
 
 .presentacion .texto-principal {
-    color: #444 !important;
+    color: #333333 !important;
     font-size: 1.2rem !important;
     max-width: 600px !important;
     line-height: 1.8 !important;
     font-weight: 300;
 }
 
-/* --- OTRAS SECCIONES --- */
+/* --- SECCIÓN CUENTA REGRESIVA (COBERTURA TOTAL ROSA TENUE ACUARELA) --- */
 .cuenta-regresiva {
-    background-color: #f4f4f4;
+    position: relative;
+    padding: 100px 20px !important;
+    overflow: hidden;
+
+    /* FONDO BASE: Un tono rosa loto empolvado extremadamente suave y tenue */
+    background-color: #F6F1EF !important; 
+
+    /* CAPAS DE ACUARELA TENUES PARA CUBRIR TODO EL DIV */
+    background-image: 
+        /* 1. Mancha Rosa Loto gigante y tenue en la esquina superior izquierda */
+        radial-gradient(at 10% 10%, rgba(227, 198, 193, 0.25) 0%, transparent 85%), 
+        /* 2. Mancha Rosa Loto gigante y tenue en la esquina inferior derecha */
+        radial-gradient(at 90% 90%, rgba(227, 198, 193, 0.25) 0%, transparent 85%),
+        /* 3. Mancha central suave para conectar las esquinas */
+        radial-gradient(at 50% 50%, rgba(227, 198, 193, 0.15) 0%, transparent 90%),
+        /* 4. Degradado de fusión inferior para integrarse suavemente con la siguiente sección */
+        linear-gradient(to bottom, transparent 90%, #f4f4f4 100%) !important;
+    
+    /* Forzamos que los degradados radiales sean gigantes para cubrir todo */
+    background-size: 140% 140%, 140% 140%, 100% 100%, 100% 100% !important;
+    
+    /* Animación lenta para que las manchas "fluyan" por todo el div */
+    animation: fluirAcuarelaTenue 25s ease-in-out infinite alternate !important;
+    
+    /* Aseguramos que el contenido esté por encima de las manchas */
+    z-index: 1; 
+}
+
+/* Pseudo-elemento para añadir una textura de papel sutil y orgánica a la acuarela */
+.cuenta-regresiva::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    opacity: 0.04;
+    z-index: -1;
+}
+
+.subtitulo {
+    font-size: 1rem;
+    color: #6b7a67; /* Verde profundo para los textos sobre rosa tenue */
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 5;
 }
 
 .contador-contenedor {
@@ -114,11 +171,57 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.caja-tiempo {
+    /* Mantenemos el estilo de cápsula sutil */
+    background: rgba(255, 255, 255, 0.08);
+    padding: 25px 15px;
+    border-radius: 20px;
+    min-width: 110px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    transition: transform 0.3s ease;
+}
+
+.caja-tiempo:hover {
+    transform: translateY(-5px);
 }
 
 .caja-tiempo span {
-    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 7vw, 3.8rem);
     font-weight: 600;
+    color: #4A5D45; /* Verde profundo para los números */
+    line-height: 1;
+}
+
+.caja-tiempo p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #8FA989; /* Verde medio para el texto descriptivo */
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.separador {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #4A5D45;
+    margin-top: -35px;
+    position: relative;
+    z-index: 5;
+}
+
+/* --- RESTO DE SECCIONES (MANTENIDAS) --- */
+.fiesta {
+    background-color: #ffffff;
+}
+
+.galeria {
+    background-color: #f4f4f4;
 }
 
 .grid-fotos {
@@ -131,20 +234,29 @@ h1, h2, h3 {
 .grid-fotos img {
     width: 100%;
     height: auto;
+    display: block;
     border-radius: 8px;
 }
 
-/* --- ANIMACIONES --- */
-@keyframes animarLetras {
-    to { background-position: 300% center; }
+/* --- ANIMACIONES (RENOVADA) --- */
+@keyframes fluirAcuarelaTenue {
+    0% { background-position: 0% 0%, 100% 100%, center center, center top; }
+    100% { background-position: 20% 10%, 80% 90%, center center, center top; }
 }
 
-@keyframes moverFondoSutil {
+@keyframes moverAcuarela {
     0% { background-position: 0% 0%; }
-    100% { background-position: 15% 15%; }
+    100% { background-position: 100% 100%; }
 }
 
+@keyframes colorTexto {
+    to { background-position: 200% center; }
+}
+
+/* --- RESPONSIVE (MANTENIDA) --- */
 @media (max-width: 768px) {
-    .presentacion { padding: 60px 20px !important; }
+    .contador-contenedor { gap: 10px; flex-wrap: wrap; }
+    .caja-tiempo span { font-size: 1.8rem; }
+    .caja-tiempo { padding: 15px 5px; min-width: 80px; }
     .presentacion .titulo-seccion { font-size: 2.2rem !important; }
 }
