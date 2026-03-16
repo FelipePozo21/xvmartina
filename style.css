@@ -1,4 +1,6 @@
-/* --- CONFIGURACIÓN GLOBAL (MANTENIDA) --- */
+/* ==========================================================================
+   1. CONFIGURACIÓN GLOBAL
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +13,7 @@ body, html {
     overflow-x: hidden;
     background-color: #fafafa;
     color: #333;
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
@@ -18,7 +21,19 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-/* --- PORTADA (MANTENIDA) --- */
+.bloque {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   2. SECCIONES PREVIAS (PORTADA, PRESENTACIÓN, CONTADOR, FIESTA)
+   ========================================================================== */
 .portada {
     position: relative;
     width: 100vw;
@@ -48,43 +63,17 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
 }
 
-.control-musica:hover {
-    transform: scale(1.1);
-}
+.control-musica:hover { transform: scale(1.1); }
+.control-musica img { width: 20px; height: 20px; }
 
-.control-musica img {
-    width: 20px;
-    height: 20px;
-}
-
-/* --- BLOQUE BASE (MANTENIDA) --- */
-.bloque {
-    width: 100%;
-    padding: 80px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* --- SECCIÓN PRESENTACIÓN (MANTENIDA) --- */
 .presentacion {
     position: relative;
     margin-top: -1px !important; 
     padding: 80px 20px !important; 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    overflow: hidden;
-
     background-color: #F1F1F1 !important; 
-    
     background-image: 
         radial-gradient(at 0% 0%, rgba(143, 169, 137, 0.3) 0%, transparent 60%), 
         radial-gradient(at 100% 100%, rgba(227, 198, 193, 0.4) 0%, transparent 60%) !important;
-    
     background-size: 150% 150% !important;
     animation: moverAcuarela 15s ease infinite alternate !important;
 }
@@ -97,9 +86,6 @@ h1, h2, h3 {
     font-weight: 700 !important;
     margin-bottom: 20px !important;
     letter-spacing: 5px;
-    position: relative;
-    z-index: 5;
-    
     background: linear-gradient(90deg, #6b7a67, #b88a83, #4A5D45, #6b7a67);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -115,10 +101,9 @@ h1, h2, h3 {
     font-weight: 300;
 }
 
-/* --- SECCIÓN CUENTA REGRESIVA (COBERTURA TOTAL ROSA TENUE ACUARELA) --- */
 .cuenta-regresiva {
     position: relative;
-    padding: 80px 10px !important; /* Un poco menos de padding lateral */
+    padding: 80px 10px !important;
     overflow: hidden;
     background-color: #F6F1EF !important; 
     background-image: 
@@ -128,29 +113,28 @@ h1, h2, h3 {
         linear-gradient(to bottom, transparent 90%, #f4f4f4 100%) !important;
     background-size: 140% 140% !important;
     animation: fluirAcuarelaTenue 25s ease-in-out infinite alternate !important;
-    z-index: 1; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1; 
 }
 
 .contador-contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Reducimos el espacio entre cajas para que entren */
-    position: relative;
-    z-index: 5;
+    gap: 10px;
     width: 100%;
     max-width: 600px;
+    z-index: 5;
 }
 
 .caja-tiempo {
     background: rgba(255, 255, 255, 0.08);
-    padding: 15px 5px; /* Padding más ajustado */
+    padding: 15px 5px;
     border-radius: 15px;
-    flex: 1; /* Hace que todas las cajas midan lo mismo */
-    min-width: 70px; /* Ancho mínimo para que no se deformen */
+    flex: 1;
+    min-width: 70px;
     max-width: 120px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(2px);
@@ -159,7 +143,7 @@ h1, h2, h3 {
 
 .caja-tiempo span {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 5vw, 3.5rem); /* Fuente flexible: se achica sola en el celu */
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
     font-weight: 600;
     color: #4A5D45 !important;
     line-height: 1;
@@ -167,44 +151,166 @@ h1, h2, h3 {
 }
 
 .caja-tiempo p {
-    font-size: clamp(0.6rem, 2vw, 0.8rem); /* Texto de abajo también flexible */
+    font-size: clamp(0.6rem, 2vw, 0.8rem);
     text-transform: uppercase;
     color: #8FA989 !important;
     letter-spacing: 1px;
     margin-top: 5px;
 }
 
-.separador {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #4A5D45;
-    margin-top: -15px;
-}
-
-/* --- RESTO DE SECCIONES (MANTENIDAS) --- */
 .fiesta {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
+    padding: 100px 20px !important;
 }
 
+.fiesta .titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    color: #4A5D45;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.fiesta .texto-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto 25px;
+}
+
+.fiesta .texto-info strong {
+    color: #b88a83;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fiesta .btn-principal {
+    display: inline-block;
+    padding: 16px 45px;
+    background-color: #6b7a67;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(107, 122, 103, 0.2);
+    border: none;
+}
+
+.fiesta .btn-principal:hover {
+    background-color: #4A5D45;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(107, 122, 103, 0.4);
+}
+
+/* ==========================================================================
+   3. SECCIÓN EXTRAS (NUEVO)
+   ========================================================================== */
+.extras {
+    background-color: #F1F1F1 !important; /* Volvemos al tono neutro suave */
+    padding: 100px 20px !important;
+    gap: 40px !important; /* Espacio entre cada tarjeta */
+}
+
+.item-extra {
+    background: #ffffff;
+    border: 1px solid rgba(143, 169, 137, 0.15);
+    padding: 50px 30px;
+    border-radius: 35px; /* Forma de cápsula/tarjeta suave */
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.item-extra:hover {
+    transform: translateY(-5px);
+}
+
+.item-extra .titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #4A5D45;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.item-extra .texto-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.item-extra .btn-principal {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: transparent;
+    color: #6b7a67 !important;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #6b7a67;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+.item-extra .btn-principal:hover {
+    background-color: #6b7a67;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   4. GALERÍA Y ANIMACIONES
+   ========================================================================== */
 .galeria {
-    background-color: #f4f4f4;
+    padding: 80px 20px !important;
+    background-color: #F6F1EF !important;
 }
 
 .grid-fotos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .grid-fotos img {
     width: 100%;
     height: auto;
-    display: block;
-    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+    opacity: 0;
+    animation: aparecerFade 0.8s ease-out forwards;
 }
 
-/* --- ANIMACIONES (RENOVADA) --- */
+.grid-fotos img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(107, 122, 103, 0.3);
+}
+
+/* Cascada Desktop */
+.grid-fotos img:nth-child(1), .grid-fotos img:nth-child(2), .grid-fotos img:nth-child(3) { animation-delay: 0.2s; }
+.grid-fotos img:nth-child(4), .grid-fotos img:nth-child(5), .grid-fotos img:nth-child(6) { animation-delay: 0.4s; }
+
 @keyframes fluirAcuarelaTenue {
     0% { background-position: 0% 0%, 100% 100%, center center, center top; }
     100% { background-position: 20% 10%, 80% 90%, center center, center top; }
@@ -219,10 +325,21 @@ h1, h2, h3 {
     to { background-position: 200% center; }
 }
 
-/* --- RESPONSIVE (MANTENIDA) --- */
+@keyframes aparecerFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
 @media (max-width: 768px) {
     .contador-contenedor { gap: 10px; flex-wrap: wrap; }
     .caja-tiempo span { font-size: 1.8rem; }
-    .caja-tiempo { padding: 15px 5px; min-width: 80px; }
     .presentacion .titulo-seccion { font-size: 2.2rem !important; }
+    
+    .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-fotos img:nth-child(n) { animation-delay: 0s; }
+    .grid-fotos img:nth-child(1), .grid-fotos img:nth-child(2) { animation-delay: 0.2s; }
+    .grid-fotos img:nth-child(3), .grid-fotos img:nth-child(4) { animation-delay: 0.4s; }
 }
