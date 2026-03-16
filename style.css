@@ -118,101 +118,67 @@ h1, h2, h3 {
 /* --- SECCIÓN CUENTA REGRESIVA (COBERTURA TOTAL ROSA TENUE ACUARELA) --- */
 .cuenta-regresiva {
     position: relative;
-    padding: 100px 20px !important;
+    padding: 80px 10px !important; /* Un poco menos de padding lateral */
     overflow: hidden;
-
-    /* FONDO BASE: Un tono rosa loto empolvado extremadamente suave y tenue */
     background-color: #F6F1EF !important; 
-
-    /* CAPAS DE ACUARELA TENUES PARA CUBRIR TODO EL DIV */
     background-image: 
-        /* 1. Mancha Rosa Loto gigante y tenue en la esquina superior izquierda */
         radial-gradient(at 10% 10%, rgba(227, 198, 193, 0.25) 0%, transparent 85%), 
-        /* 2. Mancha Rosa Loto gigante y tenue en la esquina inferior derecha */
         radial-gradient(at 90% 90%, rgba(227, 198, 193, 0.25) 0%, transparent 85%),
-        /* 3. Mancha central suave para conectar las esquinas */
         radial-gradient(at 50% 50%, rgba(227, 198, 193, 0.15) 0%, transparent 90%),
-        /* 4. Degradado de fusión inferior para integrarse suavemente con la siguiente sección */
         linear-gradient(to bottom, transparent 90%, #f4f4f4 100%) !important;
-    
-    /* Forzamos que los degradados radiales sean gigantes para cubrir todo */
-    background-size: 140% 140%, 140% 140%, 100% 100%, 100% 100% !important;
-    
-    /* Animación lenta para que las manchas "fluyan" por todo el div */
+    background-size: 140% 140% !important;
     animation: fluirAcuarelaTenue 25s ease-in-out infinite alternate !important;
-    
-    /* Aseguramos que el contenido esté por encima de las manchas */
     z-index: 1; 
-}
-
-/* Pseudo-elemento para añadir una textura de papel sutil y orgánica a la acuarela */
-.cuenta-regresiva::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    opacity: 0.04;
-    z-index: -1;
-}
-
-.subtitulo {
-    font-size: 1rem;
-    color: #6b7a67; /* Verde profundo para los textos sobre rosa tenue */
-    margin-bottom: 30px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contador-contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px; /* Reducimos el espacio entre cajas para que entren */
     position: relative;
     z-index: 5;
+    width: 100%;
+    max-width: 600px;
 }
 
 .caja-tiempo {
-    /* Mantenemos el estilo de cápsula sutil */
     background: rgba(255, 255, 255, 0.08);
-    padding: 25px 15px;
-    border-radius: 20px;
-    min-width: 110px;
+    padding: 15px 5px; /* Padding más ajustado */
+    border-radius: 15px;
+    flex: 1; /* Hace que todas las cajas midan lo mismo */
+    min-width: 70px; /* Ancho mínimo para que no se deformen */
+    max-width: 120px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(2px);
-    transition: transform 0.3s ease;
-}
-
-.caja-tiempo:hover {
-    transform: translateY(-5px);
+    text-align: center;
 }
 
 .caja-tiempo span {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 7vw, 3.8rem);
+    font-size: clamp(1.8rem, 5vw, 3.5rem); /* Fuente flexible: se achica sola en el celu */
     font-weight: 600;
-    color: #4A5D45; /* Verde profundo para los números */
+    color: #4A5D45 !important;
     line-height: 1;
+    display: block;
 }
 
 .caja-tiempo p {
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 2vw, 0.8rem); /* Texto de abajo también flexible */
     text-transform: uppercase;
-    color: #8FA989; /* Verde medio para el texto descriptivo */
-    letter-spacing: 2px;
-    margin-top: 10px;
+    color: #8FA989 !important;
+    letter-spacing: 1px;
+    margin-top: 5px;
 }
 
 .separador {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #4A5D45;
-    margin-top: -35px;
-    position: relative;
-    z-index: 5;
+    margin-top: -15px;
 }
 
 /* --- RESTO DE SECCIONES (MANTENIDAS) --- */
