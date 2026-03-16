@@ -1,3 +1,4 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,37 +11,27 @@ body, html {
     overflow-x: hidden;
     background-color: #fafafa;
     color: #333;
-    margin: 0;
-    padding: 0;
 }
 
 h1, h2, h3 {
     font-weight: 600;
     letter-spacing: 2px;
 }
-/* --- PORTADA CON EFECTO REFINADO --- */
+
+/* --- PORTADA --- */
 .portada {
     position: relative;
     width: 100vw;
     height: 100vh;
     background-image: url('herojpeg.jpeg');
-    
-    /* 1. Forzamos a que la imagen ocupe el 100% del ancho y el 100% del alto */
-    /* Esto evita que la S y el 15 se corten por los lados */
     background-size: 100% 100%; 
-    
     background-position: center;
     background-repeat: no-repeat;
-    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* El fondo desenfocado que evita el color blanco liso */
-
-
-/* Botón de música visible */
 .control-musica {
     position: absolute;
     top: 25px;
@@ -56,20 +47,7 @@ h1, h2, h3 {
     backdrop-filter: blur(5px);
 }
 
-.control-musica:hover {
-    transform: scale(1.1);
-}
-
-.control-musica img {
-    width: 20px;
-    height: 20px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+/* --- BLOQUE BASE --- */
 .bloque {
     width: 100%;
     padding: 80px 20px;
@@ -80,37 +58,55 @@ h1, h2, h3 {
     justify-content: center;
 }
 
+/* --- SECCIÓN PRESENTACIÓN (ALTURA AJUSTADA) --- */
 .presentacion {
-    background-color: #ffffff;
+    position: relative;
+    margin-top: -1px !important; 
+    /* Reducimos el padding para que el alto sea menor */
+    padding: 80px 20px !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    overflow: hidden;
+
+    background-color: #F1F1F1 !important; 
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(143, 169, 137, 0.3) 0%, transparent 60%), 
+        radial-gradient(at 100% 100%, rgba(227, 198, 193, 0.4) 0%, transparent 60%) !important;
+    
+    background-size: 150% 150% !important;
+    animation: moverFondoSutil 15s ease-in-out infinite alternate !important;
 }
 
-.titulo-seccion {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #222;
+.presentacion .titulo-seccion {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(2.5rem, 8vw, 3.8rem) !important;
+    font-style: italic;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 5;
+
+    background: linear-gradient(90deg, #6b7a67, #b88a83, #4A5D45, #6b7a67);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animarLetras 8s linear infinite !important;
 }
 
-.texto-principal {
-    font-size: 1.2rem;
-    max-width: 600px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+.presentacion .texto-principal {
+    color: #444 !important;
+    font-size: 1.2rem !important;
+    max-width: 600px !important;
+    line-height: 1.8 !important;
+    font-weight: 300;
 }
 
-.firma {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #555;
-}
-
+/* --- OTRAS SECCIONES --- */
 .cuenta-regresiva {
     background-color: #f4f4f4;
-}
-
-.subtitulo {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    font-weight: 300;
 }
 
 .contador-contenedor {
@@ -120,64 +116,9 @@ h1, h2, h3 {
     gap: 15px;
 }
 
-.caja-tiempo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .caja-tiempo span {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #222;
-}
-
-.caja-tiempo p {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #777;
-}
-
-.separador {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #222;
-    margin-top: -20px;
-}
-
-.fiesta {
-    background-color: #ffffff;
-}
-
-.texto-info {
-    font-size: 1rem;
-    line-height: 1.8;
-    max-width: 500px;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.btn-principal {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #222;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-principal:hover {
-    background-color: #555;
-}
-
-.galeria {
-    background-color: #f4f4f4;
 }
 
 .grid-fotos {
@@ -185,77 +126,25 @@ h1, h2, h3 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     width: 100%;
-    max-width: 1000px;
 }
 
 .grid-fotos img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     border-radius: 8px;
-    transition: transform 0.3s ease;
 }
 
-.grid-fotos img:hover {
-    transform: scale(1.03);
+/* --- ANIMACIONES --- */
+@keyframes animarLetras {
+    to { background-position: 300% center; }
 }
 
-.extras {
-    background-color: #ffffff;
-    gap: 60px;
-}
-
-.item-extra {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.asistencia {
-    background-color: #f4f4f4;
-}
-
-.pie-pagina {
-    background-color: #222;
-    color: #fff;
-    padding: 60px 20px;
-}
-
-.texto-agradecimiento {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+@keyframes moverFondoSutil {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 15% 15%; }
 }
 
 @media (max-width: 768px) {
-    .nombre-quinceanera {
-        font-size: 3.5rem;
-    }
-    
-    .contenido-portada {
-        bottom: 15%;
-    }
-
-    .control-musica {
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .control-musica img {
-        width: 15px;
-        height: 15px;
-    }
-
-    .bloque {
-        padding: 60px 15px;
-    }
-
-    .caja-tiempo span {
-        font-size: 1.8rem;
-    }
-
-    .separador {
-        font-size: 1.5rem;
-    }
+    .presentacion { padding: 60px 20px !important; }
+    .presentacion .titulo-seccion { font-size: 2.2rem !important; }
 }
