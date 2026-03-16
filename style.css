@@ -32,7 +32,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   2. SECCIONES PREVIAS (PORTADA, PRESENTACIÓN, CONTADOR, FIESTA)
+   2. PORTADA Y PRESENTACIÓN
    ========================================================================== */
 .portada {
     position: relative;
@@ -101,6 +101,9 @@ h1, h2, h3 {
     font-weight: 300;
 }
 
+/* ==========================================================================
+   3. CUENTA REGRESIVA
+   ========================================================================== */
 .cuenta-regresiva {
     position: relative;
     padding: 80px 10px !important;
@@ -158,6 +161,16 @@ h1, h2, h3 {
     margin-top: 5px;
 }
 
+.separador {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4A5D45;
+    margin-top: -15px;
+}
+
+/* ==========================================================================
+   4. FIESTA
+   ========================================================================== */
 .fiesta {
     background-color: #ffffff !important;
     padding: 100px 20px !important;
@@ -165,11 +178,11 @@ h1, h2, h3 {
 
 .fiesta .titulo-seccion {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-size: clamp(1.8rem, 6vw, 2.5rem); 
     color: #4A5D45;
     text-transform: uppercase;
-    letter-spacing: 6px;
-    margin-bottom: 40px;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
     font-style: italic;
 }
 
@@ -192,12 +205,12 @@ h1, h2, h3 {
 
 .fiesta .btn-principal {
     display: inline-block;
-    padding: 16px 45px;
+    padding: 14px 40px; 
     background-color: #6b7a67;
     color: #ffffff !important;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -214,20 +227,30 @@ h1, h2, h3 {
     box-shadow: 0 6px 20px rgba(107, 122, 103, 0.4);
 }
 
+.fiesta::after {
+    content: "";
+    width: 100%;
+    max-width: 550px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184, 138, 131, 0.3), transparent);
+    display: block;
+    margin: 50px auto 0;
+}
+
 /* ==========================================================================
-   3. SECCIÓN EXTRAS (NUEVO)
+   5. EXTRAS
    ========================================================================== */
 .extras {
-    background-color: #F1F1F1 !important; /* Volvemos al tono neutro suave */
+    background-color: #F1F1F1 !important;
     padding: 100px 20px !important;
-    gap: 40px !important; /* Espacio entre cada tarjeta */
+    gap: 40px !important;
 }
 
 .item-extra {
     background: #ffffff;
     border: 1px solid rgba(143, 169, 137, 0.15);
     padding: 50px 30px;
-    border-radius: 35px; /* Forma de cápsula/tarjeta suave */
+    border-radius: 35px;
     max-width: 600px;
     width: 100%;
     text-align: center;
@@ -235,9 +258,7 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
 }
 
-.item-extra:hover {
-    transform: translateY(-5px);
-}
+.item-extra:hover { transform: translateY(-5px); }
 
 .item-extra .titulo-seccion {
     font-family: 'Playfair Display', serif;
@@ -276,7 +297,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. GALERÍA Y ANIMACIONES
+   6. GALERÍA
    ========================================================================== */
 .galeria {
     padding: 80px 20px !important;
@@ -307,10 +328,94 @@ h1, h2, h3 {
     box-shadow: 0 15px 30px rgba(107, 122, 103, 0.3);
 }
 
-/* Cascada Desktop */
 .grid-fotos img:nth-child(1), .grid-fotos img:nth-child(2), .grid-fotos img:nth-child(3) { animation-delay: 0.2s; }
 .grid-fotos img:nth-child(4), .grid-fotos img:nth-child(5), .grid-fotos img:nth-child(6) { animation-delay: 0.4s; }
 
+/* ==========================================================================
+   7. ASISTENCIA
+   ========================================================================== */
+.asistencia {
+    background-color: #ffffff !important;
+    padding: 100px 20px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.asistencia-card {
+    background: #ffffff;
+    border: 1px solid rgba(143, 169, 137, 0.2);
+    padding: 50px 30px;
+    border-radius: 35px;
+    max-width: 550px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.asistencia .titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 6vw, 2.4rem); 
+    color: #4A5D45;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    font-style: italic;
+}
+
+.asistencia .texto-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.asistencia .btn-principal {
+    display: inline-block;
+    padding: 14px 45px; 
+    width: 50% !important;
+    background-color: #4A5D45; 
+    color: #ffffff !important;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(74, 93, 69, 0.2);
+    border: none;
+}
+
+.asistencia .btn-principal:hover {
+    background-color: #6b7a67;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(74, 93, 69, 0.3);
+}
+
+/* ==========================================================================
+   8. PIE DE PÁGINA (NUEVO)
+   ========================================================================== */
+.pie-pagina {
+    background-color: #F1F1F1 !important;
+    background-image: linear-gradient(to bottom, #ffffff, #F1F1F1) !important;
+    padding: 60px 20px !important;
+    border-top: 1px solid rgba(107, 122, 103, 0.1);
+}
+
+.texto-agradecimiento {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #6b7a67;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   9. ANIMACIONES Y RESPONSIVE
+   ========================================================================== */
 @keyframes fluirAcuarelaTenue {
     0% { background-position: 0% 0%, 100% 100%, center center, center top; }
     100% { background-position: 20% 10%, 80% 90%, center center, center top; }
@@ -330,9 +435,6 @@ h1, h2, h3 {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   5. RESPONSIVE
-   ========================================================================== */
 @media (max-width: 768px) {
     .contador-contenedor { gap: 10px; flex-wrap: wrap; }
     .caja-tiempo span { font-size: 1.8rem; }
@@ -342,4 +444,11 @@ h1, h2, h3 {
     .grid-fotos img:nth-child(n) { animation-delay: 0s; }
     .grid-fotos img:nth-child(1), .grid-fotos img:nth-child(2) { animation-delay: 0.2s; }
     .grid-fotos img:nth-child(3), .grid-fotos img:nth-child(4) { animation-delay: 0.4s; }
+    .grid-fotos img:nth-child(5), .grid-fotos img:nth-child(6) { animation-delay: 0.6s; }
+
+    .asistencia .btn-principal { max-width: 400px !important; padding: 15px 20px; }
+    .fiesta .titulo-seccion { font-size: 1.8rem; }
+    
+    .pie-pagina { padding: 40px 15px !important; }
+    .texto-agradecimiento { font-size: 1.1rem; }
 }
