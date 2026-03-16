@@ -1,0 +1,6 @@
+formulario: 
+	invitacion: https://docs.google.com/forms/d/e/1FAIpQLSffrJ6n99insIQe7zAJIr2GbGsag-4s7JQvAIAPQZxN8mKaeg/viewform
+excel:
+	invitacion: https://docs.google.com/spreadsheets/d/1ldEQx8rSjtrWF-Vbd76vf7zzGL67hOizgFy6SQQPreM/edit?resourcekey=&gid=2030285896#gid=2030285896
+
+musica: https://open.spotify.com/playlist/4pPlYjIB5EvU2xzEOvuJvT?si=m2xZtZUNR6O2pENNy9qk3A&pi=tzS-8AFkRmuEC&nd=1&dlsi=0c298a535e6b43d6
