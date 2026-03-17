@@ -284,6 +284,40 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
 }
 
+.dress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Las tarjetas de Mujeres y Hombres */
+.dress-section {
+    background: #fdfdfd; 
+    padding: 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid rgba(107, 122, 103, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.dress-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #b88a83; /* Color rosa viejo para resaltar */
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.dress-section p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
 .item-extra:hover { transform: translateY(-5px); }
 
 .item-extra .titulo-seccion {
@@ -328,6 +362,7 @@ h1, h2, h3 {
 .galeria {
     padding: 80px 20px !important;
     background-color: #F6F1EF !important;
+    margin-bottom: -40px;
 }
 
 .grid-fotos {
@@ -469,6 +504,22 @@ h1, h2, h3 {
         gap: 4px; 
         flex-wrap: nowrap !important; 
         padding: 0 5px;
+    }
+
+    .dress-container {
+        flex-direction: row; /* Los pone uno al lado del otro */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .dress-container .titulo-seccion {
+        width: 100%; /* El título principal se queda arriba solo */
+        margin-bottom: 20px;
+    }
+
+    .dress-section {
+        flex: 1;
+        min-height: 120px;
     }
     
     .caja-tiempo { padding: 8px 2px; }

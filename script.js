@@ -1,23 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const btnMusica = document.getElementById("btn-musica");
+const btnMusica = document.getElementById("btn-musica");
     const audioFondo = document.getElementById("musica-fondo");
     const iconoMusica = document.getElementById("icono-musica");
-    let estaReproduciendo = false;
-    const urlPlay = "https://img.icons8.com/ios-filled/50/ffffff/play--v1.png";
-    const urlPausa = "https://img.icons8.com/ios-filled/50/ffffff/pause--v1.png";
+    
+    const urlPlay = "https://img.icons8.com/ios-filled/50/6b7a67/play--v1.png";
+    const urlPausa = "https://img.icons8.com/ios-filled/50/6b7a67/pause--v1.png";
 
-    btnMusica.addEventListener("click", () => {
-        if (estaReproduciendo) {
-            audioFondo.pause();
-            iconoMusica.src = urlPlay;
-        } else {
-            audioFondo.play();
-            iconoMusica.src = urlPausa;
-        }
-        estaReproduciendo = !estaReproduciendo;
-    });
+    if (btnMusica && audioFondo && iconoMusica) {
+        
+        // 1. AJUSTE DE VOLUMEN (0.0 es silencio total, 1.0 es el máximo)
+        audioFondo.volume = 0.08; // 40% de volumen para que no aturda
 
-    const fechaObjetivo = new Date("May 16, 2026 21:30:00").getTime();
+        btnMusica.addEventListener("click", () => {
+            if (audioFondo.paused) {
+                
+                // 2. SALTAR LA INTRO (Solo si es la primera vez que arranca o está en 0)
+                if (audioFondo.currentTime === 0) {
+                    audioFondo.currentTime = 8; // Salta a los 10 segundos
+                }
+
+                audioFondo.play()
+                    .then(() => {
+                        iconoMusica.src = urlPausa;
+                    })
+                    .catch(error => {
+                        console.error("Error al reproducir:", error);
+                    });
+            } else {
+                audioFondo.pause();
+                iconoMusica.src = urlPlay;
+            }
+        });
+    }
+
+    const fechaObjetivo = new Date("May 16, 2026 20:45:00").getTime();
 
     const actualizarContador = setInterval(() => {
         const ahora = new Date().getTime();
