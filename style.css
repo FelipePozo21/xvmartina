@@ -57,10 +57,10 @@ h1, h2, h3 {
 .imagen-responsive-interna {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover; 
     object-position: center center; 
 }
-
 .portada::before {
     content: "";
     position: absolute;
