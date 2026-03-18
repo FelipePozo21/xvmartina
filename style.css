@@ -290,6 +290,12 @@ h1, h2, h3 {
     gap: 20px;
     align-items: center;
 }
+.dress-container .dress-section {
+    /* Aquí mantenemos el diseño de tarjeta que ya tenías */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
 
 /* Las tarjetas de Mujeres y Hombres */
 .dress-section {
@@ -301,6 +307,7 @@ h1, h2, h3 {
     border: 1px solid rgba(107, 122, 103, 0.2);
     box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
+
 
 .dress-title {
     font-family: 'Montserrat', sans-serif;
@@ -349,6 +356,79 @@ h1, h2, h3 {
     border: 2px solid #6b7a67;
     border-radius: 50px;
     transition: all 0.4s ease;
+}
+
+.card-precios {
+    padding: 30px 15px !important;
+}
+
+.lista-precios {
+    list-style: none; /* Quitamos los círculos */
+    padding: 0;
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.item-extra ul {
+  /* Quita los puntos negros */
+  list-style-type: none;
+  /* Elimina el padding por defecto para alinear a la izquierda */
+  padding-left: 0;
+  margin-top: 15px; /* Espacio sutil arriba de la lista */
+}
+
+.item-extra li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 8px; /* Espacio entre ítems */
+}
+
+/* Estilo para los precios */
+.item-extra li span {
+  font-weight: 600; /* Hace el precio más negrita */
+  color: #6b7a67; /* Color verde del diseño */
+}
+
+.lista-precios li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(107, 122, 103, 0.2);
+    /* Alineación: Texto izquierda, Precio derecha */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.lista-precios li:last-child {
+    border-bottom: none;
+}
+
+/* El texto aclaratorio debajo de Niños */
+.lista-precios li small {
+    display: block;
+    font-size: 0.7rem;
+    color: #888;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.precio {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #4A5D45;
+    font-size: 1.1rem;
+    /* Agregamos el signo $ adelante mediante CSS */
+}
+
+.precio::before {
+    content: "$";
+    margin-right: 2px;
 }
 
 .item-extra .btn-principal:hover {
@@ -451,6 +531,12 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
+.dress-info {
+    width: 100%;
+    margin: 5px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .asistencia .btn-principal:hover {
     background-color: #6b7a67;
     transform: translateY(-3px);
@@ -506,28 +592,53 @@ h1, h2, h3 {
         padding: 0 5px;
     }
 
-    .dress-container {
-        flex-direction: row; /* Los pone uno al lado del otro */
-        flex-wrap: wrap;
-        justify-content: center;
+    .lista-precios {
+        max-width: 500px; /* Evitamos que se estire demasiado a lo ancho */
+        margin: 30px auto 0;
     }
 
-    .dress-container .titulo-seccion {
-        width: 100%; /* El título principal se queda arriba solo */
-        margin-bottom: 20px;
+    .lista-precios li {
+        font-size: 1.1rem;
+        padding: 20px 0;
+    }
+
+    .precio {
+        font-size: 1.3rem;
+    }
+
+    .dress-container {
+        flex-direction: row; /* Permitimos que los elementos se pongan a la par */
+        flex-wrap: wrap;     /* Pero permitimos que salten de línea */
+        justify-content: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .dress-info {
+    width: 100%;
+    margin: 5px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+    /* ESTO ES LO IMPORTANTE: Forza el salto de línea */
+    .dress-container  .titulo-seccion,
+    .dress-info {
+        flex: 0 0 100%; /* Ocupan el 100% de la fila, obligando al resto a bajar */
     }
 
     .dress-section {
-        flex: 1;
-        min-height: 120px;
+        flex: 1; /* Las dos tarjetas se reparten el espacio sobrante abajo */
+        max-width: 350px;
+        margin: 10px;
     }
-    
     .caja-tiempo { padding: 8px 2px; }
     
     .caja-tiempo span { font-size: 1.5rem; } /* Forzamos un tamaño que quepa en 320px */
     
     .presentacion .titulo-seccion { font-size: 2.2rem !important; }
     
+
+
     /* Galería Móvil */
     .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .grid-fotos img:nth-child(n) { animation-delay: 0s; }
